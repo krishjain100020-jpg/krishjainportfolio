@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Piroshki Pop — Branding Project | Krish Jain</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red: #EF3A4C;
+    --beige: #F2D6D1;
+    --grey: #CDBCB5;
+    --off-white: #F8F7F7;
+    --dark: #1a1a1a;
+    --black: #000000;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--off-white);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 48px;
+    border-bottom: 1px solid #ddd;
+    background: var(--off-white);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  nav .logo {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--dark);
+  }
+  nav a.home-btn {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--dark);
+    border: 1px solid var(--dark);
+    border-radius: 50px;
+    padding: 6px 18px;
+    transition: background 0.2s, color 0.2s;
+  }
+  nav a.home-btn:hover { background: var(--dark); color: #fff; }
+
+  /* HERO */
+  .hero {
+    padding: 80px 48px 60px;
+    border-bottom: 1px solid #ddd;
+  }
+  .hero .tag {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 8vw, 100px);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+  .hero h1 span { font-style: italic; color: var(--red); }
+
+  /* HERO IMAGE */
+  .hero-image {
+    width: 100%;
+    max-height: 600px;
+    overflow: hidden;
+    margin-top: 48px;
+  }
+  .hero-image img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    object-position: center;
+  }
+   .hero-right {
+      position: relative; overflow: hidden;
+      background: var(--pink);
+      display: flex; align-items: flex-end; justify-content: center;
+    }
+    .hero-right img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      mix-blend-mode: multiply;
+    }
+
+
+  /* SECTIONS */
+  .section {
+    padding: 72px 48px;
+    border-bottom: 1px solid #ddd;
+  }
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 32px;
+  }
+  .section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 400;
+    margin-bottom: 24px;
+    letter-spacing: 0.02em;
+  }
+  .section p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #444;
+    max-width: 720px;
+  }
+
+  /* TWO-COL */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+  @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
+
+  /* IMAGE BOX */
+  .img-box {
+    background: #eee;
+    overflow: hidden;
+    border: 1px solid #ddd;
+  }
+  .img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  .img-box.tall { height: 480px; }
+  .img-box.medium { height: 360px; }
+  .img-box.short { height: 260px; }
+
+  /* TYPOGRAPHY SECTION — black background */
+  .typography-section {
+    background: var(--black);
+    padding: 72px 48px;
+    border-bottom: 1px solid #333;
+  }
+  .typography-section .section-label {
+    color: #666;
+  }
+  .typography-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 400;
+    margin-bottom: 48px;
+    letter-spacing: 0.02em;
+    color: #fff;
+  }
+
+  .typo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    border: 1px solid #333;
+  }
+  @media (max-width: 768px) { .typo-grid { grid-template-columns: 1fr; } }
+
+  .typo-card {
+    background: #111;
+    padding: 56px 48px;
+    border: 1px solid #222;
+    position: relative;
+  }
+  .typo-card .font-name {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 32px;
+    display: block;
+  }
+  .typo-card .display-alpha {
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 700;
+    line-height: 1.2;
+    color: #fff;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    word-break: break-all;
+  }
+  .typo-card .display-alpha.serif {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(32px, 4.5vw, 52px);
+  }
+  .typo-card .font-desc {
+    margin-top: 28px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #888;
+    max-width: 360px;
+  }
+
+  /* COLOUR PALETTE */
+  .palette-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+  }
+  @media (max-width: 600px) { .palette-grid { grid-template-columns: 1fr 1fr; } }
+
+  .swatch {
+    border: 1px solid #ddd;
+    overflow: hidden;
+  }
+  .swatch-color {
+    height: 100px;
+  }
+  .swatch-info {
+    padding: 12px 14px;
+    background: #fff;
+  }
+  .swatch-info .swatch-name {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--dark);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .swatch-info .swatch-hex {
+    font-size: 12px;
+    color: #777;
+    font-family: monospace;
+  }
+
+  /* LOGO SECTION */
+  .logo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px;
+  }
+  @media (max-width: 600px) { .logo-grid { grid-template-columns: 1fr; } }
+
+  /* PACKAGING GRID */
+  .packaging-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+  }
+  @media (max-width: 600px) { .packaging-grid { grid-template-columns: 1fr; } }
+
+  /* MISSION VISION */
+  .mv-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 32px;
+  }
+  @media (max-width: 600px) { .mv-grid { grid-template-columns: 1fr; } }
+
+  .mv-card {
+    border-top: 2px solid var(--red);
+    padding-top: 24px;
+  }
+  .mv-card h3 {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 16px;
+  }
+  .mv-card p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #555;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 48px;
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #aaa;
+    border-top: 1px solid #ddd;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">Krish Jain</a>
+  <a href="../index.html" class="home-btn">Home</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <p class="tag">Branding · 2025</p>
+  <h1>Piroshki<br><span>Pop!</span></h1>
+</div>
+<div class="hero-right">
+    <img
+      src="https://static.wixstatic.com/media/e5d682_c2a962bd4dcb4d60b39b157dab9c7c39~mv2.png/v1/fill/w_1000,h_800,al_c,q_90/e5d682_c2a962bd4dcb4d60b39b157dab9c7c39~mv2.png"
+      alt="Piroshki Pop Hero"
+    />
+  </div>
+
+
+</div>
+
+<!-- DESIGN BRIEF -->
+<div class="section">
+  <p class="section-label">Design Brief</p>
+  <h2>The Brief</h2>
+  <p>This project focused on building a fresh and playful identity for a company that makes and distributes traditional Russian pastries. The goal was to appeal to a millennial audience by blending nostalgia with a modern, fun aesthetic. The brief included the creation of a unique and memorable brand name along with a complete branding package—visual identity, logo design, packaging, and digital touchpoints. Inspired by diner culture and retro vibes, the design had to feel warm and bold. The brand needed to be approachable, rooted in tradition, yet visually distinct in the competitive food and beverage space.</p>
+</div>
+
+<!-- ABOUT THE BRAND -->
+<div class="section" style="background:#fff;">
+  <p class="section-label">About the Brand</p>
+  <h2>Brand Identity</h2>
+  <p>Piroshki Pop! comes alive in vibrant, nostalgic settings that speak directly to millennials. Whether it's a cozy diner corner, a fun food truck, or a cheerful bakery counter, the brand shines through bold colors, playful typography, and interactive packaging. The creamy reds and soft beige tones feel familiar yet fresh, creating a warm and energetic vibe. Custom props, branded takeaway boxes, and social-ready backdrops invite customers to engage beyond just the product. Every touchpoint — from signage to merch — celebrates the fusion of tradition and fun, making Piroshki Pop! more than a snack; it's a full experience.</p>
+</div>
+
+<!-- MISSION & VISION -->
+<div class="section">
+  <p class="section-label">Mission & Vision</p>
+  <h2>Purpose</h2>
+  <div class="mv-grid">
+    <div class="mv-card">
+      <h3>Mission</h3>
+      <p>Piroshki Pop! aims to reimagine traditional Russian pastries with fresh ingredients and playful energy. We bring joy to every bite, serving millennial audiences with nostalgic flavors wrapped in modern branding. Our mission is to create fun, memorable food moments that are as delicious as they are Instagrammable.</p>
+    </div>
+    <div class="mv-card">
+      <h3>Vision</h3>
+      <p>To become a beloved comfort food brand that brings generations together. Piroshki Pop! envisions a future where Russian pastries are a staple in diners, pop-ups, and homes across the globe—celebrated for their warmth, personality, and twist of fun that turns everyday snacking into joyful experiences.</p>
+    </div>
+  </div>
+</div>
+
+<!-- BRAND NAME -->
+<div class="section" style="background:#fff;">
+  <p class="section-label">Brand Name</p>
+  <h2>Why Piroshki Pop?</h2>
+  <p>The name "Piroshki Pop!" perfectly captures the essence of the brand. <em>Piroshki</em> directly references the traditional Russian pastry, grounding the brand in cultural authenticity. The word <em>Pop!</em> adds a burst of fun, energy, and modern appeal—qualities that resonate strongly with the millennial audience. It also evokes a retro diner feel, aligning with the brand's nostalgic yet playful direction. The name is catchy, memorable, and visually expressive, making it ideal for building a vibrant, Instagrammable identity.</p>
+</div>
+
+<!-- LOGO -->
+<div class="section">
+  <p class="section-label">Logo</p>
+  <h2>Primary Logo</h2>
+  <p>The primary logo showcases a slice of cake at the center, surrounded by the name "Piroshki Pop!" in a bold, bubbly typeface within a vibrant red circular badge. The rounded, playful lettering and soft pastel illustration reflect the brand's fun and nostalgic energy.</p>
+  <div class="logo-grid">
+    <div class="img-box tall">
+      <img src="https://static.wixstatic.com/media/e5d682_3a44f6fc85f74021bbeda79764ac277e~mv2.png/v1/fill/w_800,h_600,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-1823979425_b.png" alt="Primary Logo">
+    </div>
+    <div>
+      <h2 style="margin-top:0; font-family:'Cormorant Garamond',serif; font-size:clamp(22px,3vw,34px);">Secondary Logo</h2>
+      <p style="margin-bottom:24px;">The secondary logo presents a bold, stacked letterform arrangement of "Piroshki," with an exaggerated, playful "P" leading the design. Set within a red circular badge, this compact version retains the brand's fun, nostalgic character while ensuring flexibility across smaller applications.</p>
+      <div class="img-box tall">
+        <img src="https://static.wixstatic.com/media/e5d682_2174d802395141bea686d5ae79dce16f~mv2.png/v1/fill/w_800,h_600,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-1823979425_b.png" alt="Secondary Logo">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TYPOGRAPHY — BLACK BACKGROUND -->
+<div class="typography-section">
+  <p class="section-label">Typography</p>
+  <h2>Typefaces</h2>
+  <div class="typo-grid">
+    <div class="typo-card">
+      <span class="font-name">Primary — Game Bubble</span>
+      <div class="display-alpha">ABCDEFGHIJ<br>KLMNOPQR<br>STUVWXYZ<br>1234567890</div>
+      <p class="font-desc">Game Bubble brings a bold, playful character to the brand, reflecting its fun and youthful appeal. It resonates well with millennials and adds a pop-art charm to the identity.</p>
+    </div>
+    <div class="typo-card">
+      <span class="font-name">Secondary — Butler Medium</span>
+      <div class="display-alpha serif">ABCDEFGHIJ<br>KLMNOPQR<br>STUVWXYZ<br>1234567890</div>
+      <p class="font-desc">Butler Medium adds a refined, classic touch, grounding the brand in tradition while keeping it approachable and modern. A perfect complement to the exuberance of Game Bubble.</p>
+    </div>
+  </div>
+
+  <!-- Typography images from Wix -->
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:24px;">
+    <div class="img-box medium" style="background:#111; border-color:#333;">
+      <img src="https://static.wixstatic.com/media/e5d682_b38b86ee29224302aa202f41a4574eca~mv2.png/v1/fill/w_800,h_400,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-1823979425_b.png" alt="Typography 1" style="object-fit:contain;">
+    </div>
+    <div class="img-box medium" style="background:#111; border-color:#333;">
+      <img src="https://static.wixstatic.com/media/e5d682_d455c99dcaa648e09879157d99945db7~mv2.png/v1/fill/w_800,h_400,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-1823979425_b.png" alt="Typography 2" style="object-fit:contain;">
+    </div>
+  </div>
+</div>
+
+<!-- COLOUR PALETTE -->
+<div class="section" style="background:#fff;">
+  <p class="section-label">Colour Palette</p>
+  <h2>Brand Colours</h2>
+  <div class="palette-grid">
+    <div class="swatch">
+      <div class="swatch-color" style="background:#EF3A4C;"></div>
+      <div class="swatch-info">
+        <span class="swatch-name">Magenta</span>
+        <span class="swatch-hex">#EF3A4C<br>RGB 239, 58, 76<br>CMYK 0, 76, 68, 7</span>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#CDBCB5;"></div>
+      <div class="swatch-info">
+        <span class="swatch-name">Light Grey</span>
+        <span class="swatch-hex">#CDBCB5<br>RGB 205, 187, 181<br>CMYK 0, 9, 12, 27</span>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#F2D6D1;"></div>
+      <div class="swatch-info">
+        <span class="swatch-name">Light Salmon</span>
+        <span class="swatch-hex">#F2D6D1<br>RGB 242, 214, 219<br>CMYK 0, 12, 9, 5</span>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#F8F7F7; border-bottom:1px solid #eee;"></div>
+      <div class="swatch-info">
+        <span class="swatch-name">White</span>
+        <span class="swatch-hex">#F8F7F7<br>RGB 248, 247, 247<br>CMYK 0, 0, 0, 0.03</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PACKAGING -->
+<div class="section">
+  <p class="section-label">Packaging & Collateral</p>
+  <h2>Brand Applications</h2>
+  <div class="packaging-grid">
+    <div class="img-box tall">
+      <img src="https://static.wixstatic.com/media/e5d682_77d9735436954db797a0af637f1bc43c~mv2.png/v1/fill/w_600,h_500,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-1823979425_b.png" alt="Packaging 1">
+    </div>
+    <div class="img-box tall">
+      <img src="https://static.wixstatic.com/media/e5d682_cca898c7c5a340d690aed00883178a70~mv2.png/v1/fill/w_600,h_500,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-1823979425_b.png" alt="Packaging 2">
+    </div>
+    <div class="img-box tall">
+      <img src="https://static.wixstatic.com/media/e5d682_62219032d7504fb39e1955c391720770~mv2.png/v1/fill/w_600,h_500,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-1823979425_b.png" alt="Packaging 3">
+    </div>
+    <div class="img-box tall">
+      <img src="https://static.wixstatic.com/media/e5d682_317dade9688c4c769bf2804d2eee7085~mv2.png/v1/fill/w_600,h_500,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-1823979425_b.png" alt="Collateral 1">
+    </div>
+    <div class="img-box tall">
+      <img src="https://static.wixstatic.com/media/e5d682_f0948913b0484083830545d4c1a5ca14~mv2.png/v1/fill/w_600,h_500,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-1823979425_b.png" alt="Collateral 2">
+    </div>
+    <div class="img-box tall">
+      <img src="https://static.wixstatic.com/media/e5d682_af6603636ccb49569e8a4c80ffb5b995~mv2.png/v1/fill/w_600,h_500,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-1823979425_b.png" alt="Collateral 3">
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  @2026 Krish Jain
+</footer>
+
+</body>
+</html>

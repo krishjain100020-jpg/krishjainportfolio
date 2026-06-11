@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jack & Jones — Styling & Photography | Krish Jain</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    :root {
+      --black:   #0a0a0a;
+      --off:     #111111;
+      --panel:   #161616;
+      --rule:    rgba(255,255,255,0.08);
+      --muted:   rgba(255,255,255,0.38);
+      --body:    rgba(255,255,255,0.68);
+      --white:   #ffffff;
+      --yellow:  #f0c040;
+      --pad:     56px;
+    }
+ 
+    html { scroll-behavior: smooth; }
+ 
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+    }
+ 
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px var(--pad);
+      background: rgba(10,10,10,0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav-brand {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px; letter-spacing: 0.12em;
+      text-decoration: none; color: var(--white);
+    }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    .home-btn{
+
+    padding:10px 22px;
+
+    border:1px solid #5BE9FF;
+
+    border-radius:999px;
+
+    color:#5BE9FF;
+
+    transition:.3s ease;
+
+    font-size:.9rem;
+
+}
+
+.home-btn:hover{
+
+    background:#5BE9FF;
+
+    color:#000;
+
+}
+ 
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid; grid-template-columns: 1fr 1fr;
+      padding-top: 64px;
+      overflow: hidden;
+    }
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 72px var(--pad);
+      background: var(--off);
+      position: relative;
+    }
+    .hero-eyebrow {
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--yellow); margin-bottom: 20px;
+    }
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(64px, 8vw, 120px);
+      line-height: 0.92; letter-spacing: 0.02em;
+      color: var(--white);
+    }
+    .hero-title span { color: var(--yellow); }
+    .hero-tagline {
+      font-family: 'Playfair Display', serif;
+      font-style: italic; font-size: 17px;
+      color: var(--muted); margin-top: 28px;
+      max-width: 340px; line-height: 1.5;
+    }
+    .hero-meta {
+      display: flex; gap: 32px; margin-top: 48px;
+      border-top: 1px solid var(--rule); padding-top: 28px;
+    }
+    .hero-meta-item { }
+    .hero-meta-item .key {
+      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted); display: block; margin-bottom: 4px;
+    }
+    .hero-meta-item .val { font-size: 13px; color: var(--white); }
+ 
+    .hero-right {
+      position: relative; overflow: hidden; background: #0d0d0d;
+    }
+    .hero-right img {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block;
+    }
+    .hero-right::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(240,192,64,0.08) 0%, transparent 60%);
+    }
+ 
+    /* ── SECTIONS base ── */
+    .sec { padding: 96px var(--pad); }
+    .sec-label {
+      font-size: 10px; letter-spacing: 0.26em; text-transform: uppercase;
+      color: var(--yellow); margin-bottom: 14px;
+    }
+    .sec-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 5vw, 64px);
+      letter-spacing: 0.04em; line-height: 1;
+      margin-bottom: 24px;
+    }
+    .sec-body { color: var(--body); max-width: 580px; }
+ 
+    hr.rule { border: none; border-top: 1px solid var(--rule); margin: 0 var(--pad); }
+ 
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+      align-items: center;
+    }
+    .about-img-wrap {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+    }
+    .about-img-wrap img {
+      width: 100%; aspect-ratio: 3/4; object-fit: cover;
+    }
+    .about-img-wrap img:first-child {
+      grid-column: 1 / -1; aspect-ratio: 16/9;
+    }
+ 
+    /* ── CONCEPT ── */
+    .concept-sec { background: var(--panel); }
+    .concept-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+      align-items: start;
+    }
+    .concept-quote {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(40px, 6vw, 80px);
+      line-height: 0.95; letter-spacing: 0.03em;
+      color: var(--white);
+    }
+    .concept-quote em { color: var(--yellow); font-style: normal; }
+    .tagline-pill {
+      display: inline-block; margin-top: 28px;
+      padding: 10px 22px;
+      border: 1px solid var(--yellow);
+      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--yellow);
+    }
+    .concept-details { padding-top: 8px; }
+    .concept-details .sec-body { margin-bottom: 20px; }
+    .wardrobe-items {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px;
+    }
+    .wardrobe-item {
+      padding: 6px 14px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--rule);
+      font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted);
+    }
+ 
+    /* ── GALLERY ── */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 6px; margin-top: 48px;
+    }
+    .gallery-grid img {
+      width: 100%; object-fit: cover; display: block;
+    }
+    .gallery-grid img:nth-child(1) { grid-column: 1 / 3; aspect-ratio: 16/9; }
+    .gallery-grid img:nth-child(2) { aspect-ratio: 1/1; }
+    .gallery-grid img:nth-child(3) { aspect-ratio: 4/3; }
+    .gallery-grid img:nth-child(4) { aspect-ratio: 4/3; }
+    .gallery-grid img:nth-child(5) { aspect-ratio: 4/3; }
+    .gallery-grid img:nth-child(6) { grid-column: 3; aspect-ratio: 4/3; }
+ 
+    /* ── TECH SHEET ── */
+    .tech-sec { background: var(--panel); }
+    .tech-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
+      margin-top: 48px;
+    }
+    .tech-grid img { width: 100%; object-fit: cover; aspect-ratio: 16/9; display: block; }
+ 
+    /* ── PORTRAITS ── */
+    .portraits-sec { background: var(--black); }
+    .portraits-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 6px; margin-top: 48px;
+    }
+    .portraits-grid img {
+      width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block;
+      transition: transform 0.4s ease;
+    }
+    .portraits-grid img:hover { transform: scale(1.03); }
+ 
+    /* ── CAMPAIGN CLOSER ── */
+    .closer {
+      background: var(--yellow);
+      padding: 80px var(--pad);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center;
+    }
+    .closer-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(48px, 8vw, 120px);
+      color: var(--black); line-height: 0.9; letter-spacing: 0.02em;
+    }
+    .closer-sub {
+      font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(0,0,0,0.5); margin-top: 20px;
+    }
+ 
+    /* ── BACK + FOOTER ── */
+    .back-wrap { padding: 48px var(--pad) 0; }
+    .back-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none;
+      border-bottom: 1px solid transparent; transition: color 0.2s, border-color 0.2s;
+    }
+    .back-btn:hover { color: var(--white); border-color: var(--white); }
+ 
+    footer {
+      padding: 40px var(--pad);
+      display: flex; justify-content: space-between; align-items: center;
+      border-top: 1px solid var(--rule);
+      font-size: 11px; letter-spacing: 0.1em; color: var(--muted);
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--white); }
+ 
+    /* ── FADE IN ── */
+    @media (prefers-reduced-motion: no-preference) {
+      .fi { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+      .fi.show { opacity: 1; transform: none; }
+      .fi-d1 { transition-delay: 0.1s; }
+      .fi-d2 { transition-delay: 0.2s; }
+      .fi-d3 { transition-delay: 0.3s; }
+    }
+ 
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      :root { --pad: 24px; }
+      nav { padding: 16px var(--pad); }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-right { height: 50vw; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .concept-inner { grid-template-columns: 1fr; gap: 40px; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-grid img:nth-child(1) { grid-column: 1/-1; }
+      .gallery-grid img:nth-child(6) { grid-column: auto; }
+      .tech-grid { grid-template-columns: 1fr; }
+      .portraits-grid { grid-template-columns: repeat(3, 1fr); }
+      footer { flex-direction: column; gap: 10px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  
+<!-- HERO -->
+ <nav>
+   <a href="../index.html" class="home-btn">Home</a>
+</nav>
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Styling &amp; Studio Photography · 2025</p>
+    <h1 class="hero-title">JACK<br>&amp;<span class="hero-title"><br>JONES<span style="color:var(--yellow)">.</span></span></h1>
+    <p class="hero-tagline">"Brotherhood Vibes" — a campaign built on genuine moments, not poses.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="key">Discipline</span>
+        <span class="val">Styling & Photography</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="key">Campaign</span>
+        <span class="val">Brotherhood Vibes</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="key">Year</span>
+        <span class="val">2025</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://static.wixstatic.com/media/e5d682_0e8e32c4b2e44424aecf552eb11bc4d0~mv2.jpg" alt="Jack & Jones campaign hero"/>
+  </div>
+</section>
+ 
+<!-- ABOUT THE BRAND -->
+<section class="sec">
+  <div class="about-grid">
+    <div class="fi">
+      <p class="sec-label">About the Brand</p>
+      <h2 class="sec-title">JACK &amp;<br>JONES</h2>
+      <p class="sec-body">Jack &amp; Jones is a Danish fashion brand established in 1990, under the Bestseller Group. It specializes in high-quality men's clothing, including casual wear, denim, and tailored apparel.</p>
+      <p class="sec-body" style="margin-top:16px;">Known for its trendy yet affordable styles, Jack &amp; Jones caters to young, fashion-conscious men. The brand emphasizes craftsmanship and innovative design, particularly in denim, which remains a cornerstone of its identity. Its global presence spans standalone stores and shop-in-shop formats.</p>
+    </div>
+    <div class="about-img-wrap fi fi-d1">
+      <img src="https://static.wixstatic.com/media/e5d682_a0b643e55ae440b6835da5d83d260e6b~mv2.webp" alt="Jack & Jones lookbook"/>
+      <img src="https://static.wixstatic.com/media/e5d682_0f2919741f4840679303609a38efca0c~mv2.webp" alt="Jack & Jones shoot"/>
+      <img src="https://static.wixstatic.com/media/e5d682_09c1dc26f3004b27a4d51de6b20d51bc~mv2.png" alt="Jack & Jones styling"/>
+    </div>
+  </div>
+</section>
+ 
+<hr class="rule"/>
+ 
+<!-- CONCEPT NOTE -->
+<section class="sec concept-sec">
+  <div class="concept-inner">
+    <div class="fi">
+      <div class="concept-quote">MADE FOR THE<br><em>MOMENTS</em><br>THAT MATTER</div>
+      <div class="tagline-pill">Campaign Tagline</div>
+    </div>
+    <div class="concept-details fi fi-d1">
+      <p class="sec-label">Concept Note</p>
+      <h2 class="sec-title" style="font-size:clamp(28px,3.5vw,48px);">BROTHERHOOD<br>VIBES</h2>
+      <p class="sec-body">This campaign celebrates the joy of camaraderie and shared experiences in casual, energetic settings — sports fields, BBQs, and hangouts. Dynamic visuals capture friends playing, laughing, or jamming together, prioritising genuine connections over posed shots.</p>
+      <p class="sec-body" style="margin-top:14px;">Props like skateboards and guitars enhance the vibe throughout, reinforcing the sense of a crew that lives in the moment.</p>
+      <div class="wardrobe-items">
+        <span class="wardrobe-item">Varsity Jackets</span>
+        <span class="wardrobe-item">Graphic Tees</span>
+        <span class="wardrobe-item">Joggers</span>
+        <span class="wardrobe-item">Sneakers</span>
+        <span class="wardrobe-item">Denim</span>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<hr class="rule"/>
+ 
+<!-- GALLERY -->
+<section class="sec">
+  <p class="sec-label fi">Campaign Gallery</p>
+  <h2 class="sec-title fi fi-d1">Mood Board</h2>
+  <div class="gallery-grid">
+    <img src="https://static.wixstatic.com/media/e5d682_1f328c62f44a4dc5a45ffa1fcfd72754~mv2.jpg" alt="Campaign shot 1" class="fi"/>
+    <img src="https://static.wixstatic.com/media/e5d682_4a3c9db5fae64857abf8962dff86b0bd~mv2.webp" alt="Campaign shot 2" class="fi fi-d1"/>
+    <img src="https://static.wixstatic.com/media/e5d682_9ab0d9c3abe7424086ba439f4cf7aabb~mv2.jpg" alt="Campaign shot 3" class="fi fi-d1"/>
+    <img src="https://static.wixstatic.com/media/e5d682_a284c6607e654d91b8edf3caf08b96eb~mv2.jpg" alt="Campaign shot 4" class="fi fi-d2"/>
+    <img src="https://static.wixstatic.com/media/e5d682_8492d24bacb9485ba7b30236dc855fdd~mv2.webp" alt="Campaign shot 5" class="fi fi-d2"/>
+    <img src="https://static.wixstatic.com/media/e5d682_6cc8689b890944e28be681b575811592~mv2.jpg" alt="Campaign shot 6" class="fi"/>
+  </div>
+</section>
+ 
+<hr class="rule"/>
+ 
+<!-- TECH SHEET -->
+<section class="sec tech-sec">
+  <p class="sec-label fi">Technical Reference</p>
+  <h2 class="sec-title fi fi-d1">TECH SHEET</h2>
+  <p class="sec-body fi fi-d1">Detailed garment documentation for each look — fabric, construction, and styling notes for the production team.</p>
+  <div class="tech-grid">
+    <img src="https://static.wixstatic.com/media/e5d682_281bfb92d6c54180a4400fad38471421~mv2.jpg" alt="Tech sheet 1" class="fi"/>
+    <img src="https://static.wixstatic.com/media/e5d682_326558dc88fb4ec9a9e8abdb232e48ed~mv2.jpg" alt="Tech sheet 2" class="fi fi-d1"/>
+  </div>
+</section>
+ 
+<hr class="rule"/>
+ 
+<!-- PORTRAITS -->
+<section class="sec portraits-sec">
+  <p class="sec-label fi">Final Portraits</p>
+  <h2 class="sec-title fi fi-d1">THE LOOKS</h2>
+  <p class="sec-body fi fi-d1">Individual character portraits — each framing the Jack &amp; Jones wardrobe against a consistent studio backdrop.</p>
+  <div class="portraits-grid">
+    <img src="https://static.wixstatic.com/media/e5d682_ec0b90c0ef1444cbb6f34b8cefb43e18~mv2.png" alt="Look 1" class="fi"/>
+    <img src="https://static.wixstatic.com/media/e5d682_2c0ef88ce74143ffa482043f14bd5c32~mv2.png" alt="Look 2" class="fi fi-d1"/>
+    <img src="https://static.wixstatic.com/media/e5d682_e7eaec4fadfb49f498a9bdb56b285580~mv2.png" alt="Look 3" class="fi fi-d1"/>
+    <img src="https://static.wixstatic.com/media/e5d682_a8a1f6479f59414982e5ea3a34f7c9ff~mv2.png" alt="Look 4" class="fi fi-d2"/>
+    <img src="https://static.wixstatic.com/media/e5d682_f9d500eb12a74e64978e002c597d8ab6~mv2.png" alt="Look 5" class="fi fi-d2"/>
+    <img src="https://static.wixstatic.com/media/e5d682_7111abd0487f4b89bc0a2c83ba1b096a~mv2.png" alt="Look 6" class="fi fi-d3"/>
+    <img src="https://static.wixstatic.com/media/e5d682_0e78df91a5d7401e9af1fe4674632141~mv2.png" alt="Look 7" class="fi fi-d3"/>
+  </div>
+</section>
+ 
+<!-- CAMPAIGN CLOSER -->
+<div class="closer">
+  <div class="closer-title">MADE FOR<br>THE MOMENTS<br>THAT MATTER</div>
+  <p class="closer-sub">Jack &amp; Jones · Brotherhood Vibes Campaign · 2025</p>
+</div>
+ 
+ 
+<footer>
+  <span>© 2026 Krish Jain</span>
+  <span>Styling &amp; Photography · Jack &amp; Jones</span>
+  
+</footer>
+ 
+<script>
+  const els = document.querySelectorAll('.fi');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  els.forEach(el => io.observe(el));
+</script>
+ 
+</body>
+</html>

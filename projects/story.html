@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>STORY — Logo Design | Krish Jain</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:    #0e0e0e;
+      --paper:  #f8f6f1;
+      --silver: #c8c4bc;
+      --gold:   #b09060;
+      --white:  #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 48px;
+      background: rgba(248,246,241,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--ink);
+      font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+      opacity: 0.55; transition: opacity 0.2s;
+    }
+    .nav-links a:hover { opacity: 1; }
+     
+    .home-btn{
+
+    padding:10px 22px;
+
+    border:1px solid #5BE9FF;
+
+    border-radius:999px;
+
+    color:#5BE9FF;
+
+    transition:.3s ease;
+
+    font-size:.9rem;
+
+}
+
+.home-btn:hover{
+
+    background:#5BE9FF;
+
+    color:#000;
+
+}
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 0 48px 72px;
+      position: relative;
+      overflow: hidden;
+      background: var(--ink);
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://static.wixstatic.com/media/e5d682_cf3244a1cb1a42318aed727ae8f1caa1~mv2.png');
+      background-size: cover; background-position: center;
+      opacity: 0.18;
+    }
+    .hero-tag {
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 20px;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(72px, 12vw, 160px);
+      font-weight: 300;
+      line-height: 0.88;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+    .hero-title em { font-style: italic; color: var(--gold); }
+    .hero-sub {
+      margin-top: 32px;
+      font-size: 13px; letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.45);
+      max-width: 380px;
+    }
+    .hero-line {
+      position: absolute; bottom: 0; left: 48px; right: 48px;
+      height: 1px; background: rgba(255,255,255,0.1);
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 96px 48px; }
+
+    .label {
+      font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 16px;
+    }
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 400; line-height: 1.15;
+      margin-bottom: 28px;
+    }
+    p { max-width: 600px; opacity: 0.75; margin-bottom: 20px; }
+
+    /* ── OVERVIEW ── */
+    .overview {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+      align-items: center;
+    }
+    .overview-text { }
+    .overview-images {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    }
+    .overview-images img {
+      width: 100%; aspect-ratio: 4/3; object-fit: cover;
+      border-radius: 2px;
+    }
+    .overview-images img:first-child { grid-column: 1 / -1; aspect-ratio: 16/9; }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none; border-top: 1px solid rgba(0,0,0,0.1);
+      margin: 0 48px;
+    }
+
+    /* ── CONCEPT ── */
+    .concept-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;
+      margin-top: 48px;
+    }
+    .concept-card {
+      padding: 32px; border: 1px solid rgba(0,0,0,0.08);
+      background: var(--white); border-radius: 2px;
+    }
+    .concept-card .icon { font-size: 28px; margin-bottom: 16px; }
+    .concept-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; font-weight: 400; margin-bottom: 10px;
+    }
+    .concept-card p { font-size: 13.5px; opacity: 0.65; max-width: 100%; }
+
+    /* ── LOGOS ── */
+    .logo-section { background: var(--ink); color: var(--white); }
+    .logo-section .label { color: var(--gold); }
+    .logo-section h2 { color: var(--white); }
+    .logo-section p { color: rgba(255,255,255,0.55); }
+
+    .logo-showcase {
+      margin-top: 56px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+    }
+    .logo-panel {
+      background: #1a1a1a;
+      display: flex; align-items: center; justify-content: center;
+      padding: 64px 48px; min-height: 320px;
+      position: relative;
+    }
+    .logo-panel.dark { background: #0a0a0a; }
+    .logo-panel img { max-width: 100%; max-height: 220px; object-fit: contain; }
+    .logo-panel-label {
+      position: absolute; bottom: 20px; left: 24px;
+      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ── SECONDARY ── */
+    .secondary-section { background: var(--white); }
+    .secondary-layout {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+      align-items: start; margin-top: 48px;
+    }
+    .secondary-layout img {
+      width: 100%; border-radius: 2px; border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    /* ── MOCKUP ── */
+    .mockup-section { background: #1c1c1c; }
+    .mockup-section .label { color: var(--gold); }
+    .mockup-section h2 { color: var(--white); }
+    .mockup-section p { color: rgba(255,255,255,0.5); }
+    .mockup-grid {
+      display: grid; grid-template-columns: 2fr 1fr; gap: 12px;
+      margin-top: 48px;
+    }
+    .mockup-grid img { width: 100%; border-radius: 2px; object-fit: cover; }
+    .mockup-grid img:first-child { aspect-ratio: 3/2; }
+    .mockup-stack { display: flex; flex-direction: column; gap: 12px; }
+    .mockup-stack img { flex: 1; }
+
+    /* ── DELIVERABLES ── */
+    .deliverables { display: flex; gap: 0; border: 1px solid rgba(0,0,0,0.1); margin-top: 56px; }
+    .deliverable {
+      flex: 1; padding: 32px 28px;
+      border-right: 1px solid rgba(0,0,0,0.08);
+    }
+    .deliverable:last-child { border-right: none; }
+    .deliverable .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px; font-weight: 300; color: var(--gold); line-height: 1;
+      margin-bottom: 8px;
+    }
+    .deliverable h4 {
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .deliverable p { font-size: 13px; opacity: 0.6; margin: 0; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink); color: rgba(255,255,255,0.35);
+      padding: 40px 48px;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 12px; letter-spacing: 0.1em;
+    }
+    footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
+
+    /* ── BACK LINK ── */
+    .back-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 48px;
+      font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--silver); text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .back-btn:hover { color: var(--ink); border-color: var(--ink); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      section { padding: 64px 24px; }
+      .hero { padding: 0 24px 56px; }
+      .divider { margin: 0 24px; }
+      footer { padding: 32px 24px; flex-direction: column; gap: 12px; text-align: center; }
+      .overview { grid-template-columns: 1fr; gap: 40px; }
+      .concept-grid { grid-template-columns: 1fr; }
+      .logo-showcase { grid-template-columns: 1fr; }
+      .secondary-layout { grid-template-columns: 1fr; }
+      .mockup-grid { grid-template-columns: 1fr; }
+      .deliverables { flex-direction: column; }
+      .deliverable { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.08); }
+      .deliverable:last-child { border-bottom: none; }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+      .fade-in.visible { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+ <nav>
+
+    <a class="nav-logo" href="#">Story</a>
+
+    
+    <a href="../index.html" class="home-btn">Home</a>
+
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <p class="hero-tag">Logo Design · 2025</p>
+  <h1 class="hero-title">STORY<em>.</em></h1>
+  <p class="hero-sub">A bespoke menswear brand — crafted for couples who wear their narrative.</p>
+  <div class="hero-line"></div>
+</section>
+
+<!-- OVERVIEW -->
+<section>
+  <div class="overview fade-in">
+    <div class="overview-text">
+      <p class="label">Overview</p>
+      <h2>Where tailoring meets<br>emotion</h2>
+      <p>STORY is a bespoke menswear brand selling exclusively online, targeting couples who appreciate customized, luxurious fashion. The goal was to create a white pictorial logo that reflects both glamour and professionalism, while being suitable for embroidery.</p>
+      <p>The project deliverables included a logo concept, tagline integration, and contextual mockups.</p>
+    </div>
+    <div class="overview-images">
+      <img src="https://static.wixstatic.com/media/e5d682_7e20b65ad2bf4a0a8e7f68995396793c~mv2.png" alt="STORY overview" loading="lazy"/>
+      <img src="https://static.wixstatic.com/media/e5d682_3e2f792420f64469bfbc9b827cf3ba37~mv2.png" alt="STORY concept" loading="lazy"/>
+      <img src="https://static.wixstatic.com/media/e5d682_aea40e0433914ef6a22d8cc2f4c6d2b9~mv2.png" alt="STORY detail" loading="lazy"/>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- CONCEPT -->
+<section>
+  <p class="label fade-in">Design Concept</p>
+  <h2 class="fade-in">Symbol & meaning</h2>
+  <p class="fade-in">The logo combines a diamond shape with a needle, forming a single mark that carries multiple layers of intention.</p>
+  <div class="concept-grid">
+    <div class="concept-card fade-in">
+      <div class="icon">◇</div>
+      <h3>Diamond Form</h3>
+      <p>The diamond silhouette communicates luxury and enduring value — fitting for a brand built around milestone occasions and lasting style.</p>
+    </div>
+    <div class="concept-card fade-in">
+      <div class="icon">⌇</div>
+      <h3>The Needle</h3>
+      <p>A fine needle runs through the mark, signalling precision tailoring and the craft behind every garment. Minimal lines, maximum intention.</p>
+    </div>
+    <div class="concept-card fade-in">
+      <div class="icon">◎</div>
+      <h3>Symmetry</h3>
+      <p>The symmetrical composition reflects unity — two people, one story. The white palette adds touch of luxury and reads perfectly when embroidered.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- PRIMARY LOGO -->
+<section class="logo-section">
+  <p class="label fade-in">Primary Logo</p>
+  <h2 class="fade-in">The pictorial mark</h2>
+  <p class="fade-in">The primary logomark stands alone — a geometric emblem that works at scale, in thread, and in digital contexts equally well.</p>
+  <div class="logo-showcase">
+    <div class="logo-panel fade-in">
+      <img src="https://static.wixstatic.com/media/e5d682_9d7562c1a8894ccfaa530a4e30d40ff8~mv2.png" alt="STORY primary logo on dark"/>
+      <span class="logo-panel-label">Dark background</span>
+    </div>
+    
+  </div>
+</section>
+
+<!-- SECONDARY LOGO -->
+<section class="secondary-section">
+  <div class="secondary-layout">
+    <div class="fade-in">
+      <p class="label">Secondary Logo</p>
+      <h2>The wordmark</h2>
+      <p>This clean wordmark version emphasizes the brand name "STORY" in a bold, elegant serif font. It retains a luxurious and professional look, making it perfect for embroidery, packaging, and digital use where space is limited.</p>
+      <p>Simple yet impactful, it keeps the brand identity consistent while offering flexibility across touchpoints.</p>
+    </div>
+    <div >
+      <img src="https://static.wixstatic.com/media/e5d682_b2fc09127530470f83819d47d3fd8388~mv2.png" alt="STORY wordmark"/>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- MOCKUPS -->
+<section class="mockup-section">
+  <p class="label fade-in">Mockups &amp; Applications</p>
+  <h2 class="fade-in">Logo in context</h2>
+  <p class="fade-in">Visualising the mark across real touchpoints — cards, packaging, and embroidery — to validate how the identity holds in the hands of its audience.</p>
+  <div class="mockup-grid">
+    <img src="https://static.wixstatic.com/media/e5d682_cf3244a1cb1a42318aed727ae8f1caa1~mv2.png" alt="STORY card mockup" class="fade-in"/>
+    <div class="mockup-stack">
+      <img src="https://static.wixstatic.com/media/e5d682_7f3bbd1cab34453d93e99d1d5c890d4d~mv2.png" alt="STORY mockup 2" class="fade-in"/>
+      <img src="https://static.wixstatic.com/media/e5d682_6e53077dc91049d2aaf31913d8d03815~mv2.png" alt="STORY mockup 3" class="fade-in"/>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERABLES -->
+<section>
+  <p class="label fade-in">Deliverables</p>
+  <h2 class="fade-in">What was produced</h2>
+  <div class="deliverables fade-in">
+    <div class="deliverable">
+      <div class="num">01</div>
+      <h4>Primary Logomark</h4>
+      <p>Diamond-needle pictorial mark in white, optimised for digital and embroidery use.</p>
+    </div>
+    <div class="deliverable">
+      <div class="num">02</div>
+      <h4>Secondary Wordmark</h4>
+      <p>Bold serif wordmark offering flexible placement across packaging and tags.</p>
+    </div>
+    <div class="deliverable">
+      <div class="num">03</div>
+      <h4>Tagline Integration</h4>
+      <p>Typographic tagline lockup developed to accompany both logo versions.</p>
+    </div>
+    <div class="deliverable">
+      <div class="num">04</div>
+      <h4>Contextual Mockups</h4>
+      <p>High-fidelity mockups across card, label, and apparel applications.</p>
+    </div>
+  </div>
+  <a class="back-btn" href="https://krishjain100020.wixstudio.com/my-site-3/blank-1">← Back to all projects</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Krish Jain</span>
+  <span>Logo Design · STORY</span>
+</footer>
+
+<script>
+  // Scroll-triggered fade-ins
+  const els = document.querySelectorAll('.fade-in');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  els.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

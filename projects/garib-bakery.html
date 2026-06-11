@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Garib Bakery — Rebranding | Krish Jain</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold:    #C89B3C;
+    --red:     #C0392B;
+    --dark:    #1C1008;
+    --brown:   #2B1A0E;
+    --cream:   #F5EDD8;
+    --warm:    #EDE0C4;
+    --off-white: #FAF6EF;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--off-white);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 48px;
+    border-bottom: 1px solid #ddd;
+    background: var(--off-white);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  nav .logo {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--dark);
+  }
+  nav a.home-btn {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--dark);
+    border: 1px solid var(--dark);
+    border-radius: 50px;
+    padding: 6px 18px;
+    transition: background 0.2s, color 0.2s;
+  }
+  nav a.home-btn:hover { background: var(--dark); color: #fff; }
+
+  /* HERO */
+  .hero {
+    padding: 80px 48px 60px;
+    border-bottom: 1px solid #ddd;
+    background: var(--brown);
+    color: #fff;
+  }
+  .hero .tag {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 8vw, 100px);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+  .hero h1 span { font-style: italic; color: var(--gold); }
+  .hero .sub {
+    margin-top: 16px;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* HERO IMAGES */
+  .hero-images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-top: 48px;
+    height: 460px;
+  }
+  .hero-images .img-slot {
+    overflow: hidden;
+  }
+  .hero-images .img-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    filter: brightness(0.85);
+  }
+
+  /* SECTIONS */
+  .section {
+    padding: 72px 48px;
+    border-bottom: 1px solid #ddd;
+  }
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 32px;
+  }
+  .section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 400;
+    margin-bottom: 24px;
+    letter-spacing: 0.02em;
+  }
+  .section p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #444;
+    max-width: 720px;
+  }
+
+  /* BRAND CARDS */
+  .brand-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+  @media (max-width: 768px) { .brand-grid { grid-template-columns: 1fr; } }
+
+  .brand-card {
+    border-top: 2px solid var(--gold);
+    padding-top: 20px;
+  }
+  .brand-card h3 {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .brand-card p {
+    font-size: 13px;
+    line-height: 1.8;
+    color: #555;
+  }
+
+  /* VISUAL IDENTITY IMAGES */
+  .vi-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+  }
+  @media (max-width: 600px) { .vi-grid { grid-template-columns: 1fr; } }
+
+  .img-box {
+    overflow: hidden;
+    background: #eee;
+    border: 1px solid #ddd;
+  }
+  .img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .img-box.tall { height: 420px; }
+  .img-box.medium { height: 300px; }
+
+  /* LOGO COMPARISON */
+  .logo-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 40px;
+  }
+  @media (max-width: 600px) { .logo-compare { grid-template-columns: 1fr; } }
+
+  .logo-panel {
+    padding: 16px 16px 32px;
+    border: 1px solid #ddd;
+    background: #fff;
+  }
+  .logo-panel .panel-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 6px;
+  }
+  .logo-panel .panel-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: #666;
+    margin-bottom: 24px;
+  }
+  /* OLD logo shown small, greyed out */
+  .logo-panel.old .logo-display {
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f0f0;
+    border: 1px solid #e0e0e0;
+  }
+  .logo-panel.old .logo-display img {
+    max-height: 100px;
+    max-width: 80%;
+    object-fit: contain;
+    filter: grayscale(60%) opacity(0.7);
+  }
+  /* NEW logos — bright cream background, large */
+  .logo-panel.new .logo-display {
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cream);
+    border: 1px solid #e8dfc8;
+  }
+  .logo-panel.new .logo-display img {
+    max-height: 260px;
+    max-width: 85%;
+    object-fit: contain;
+  }
+
+  /* PRIMARY / SECONDARY LOGOS — big feature section */
+  .logos-section {
+    padding: 72px 48px;
+    border-bottom: 1px solid #ddd;
+    background: var(--warm);
+  }
+  .logos-section .section-label { color: #a89060; }
+  .logos-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 400;
+    margin-bottom: 48px;
+    letter-spacing: 0.02em;
+    color: var(--dark);
+  }
+
+  .logo-duo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  @media (max-width: 768px) { .logo-duo { grid-template-columns: 1fr; } }
+
+  .logo-feature {
+    background: var(--cream);
+    border: 1px solid #ddd0b0;
+    padding: 48px 32px 40px;
+  }
+  .logo-feature .lf-label {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .logo-feature h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 40px;
+    color: var(--dark);
+  }
+  .logo-feature .logo-img-wrap {
+    height: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border: 1px solid #e0d5bc;
+    margin-bottom: 32px;
+  }
+  .logo-feature .logo-img-wrap img {
+    max-height: 280px;
+    max-width: 80%;
+    object-fit: contain;
+  }
+  .logo-feature p {
+    font-size: 13px;
+    line-height: 1.8;
+    color: #5a4a30;
+  }
+
+  /* TYPOGRAPHY */
+  .typo-section {
+    padding: 72px 48px;
+    border-bottom: 1px solid #ddd;
+    background: var(--brown);
+  }
+  .typo-section .section-label { color: #806040; }
+  .typo-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 400;
+    margin-bottom: 48px;
+    color: var(--cream);
+  }
+  .typo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 600px) { .typo-grid { grid-template-columns: 1fr; } }
+
+  .typo-img {
+    background: #1a0f06;
+    border: 1px solid #3a2a18;
+    height: 300px;
+    overflow: hidden;
+  }
+  .typo-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* COLOUR PALETTE */
+  .palette-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+  }
+  @media (max-width: 600px) { .palette-grid { grid-template-columns: 1fr 1fr; } }
+
+  .swatch { border: 1px solid #ddd; overflow: hidden; }
+  .swatch-color { height: 100px; }
+  .swatch-info { padding: 12px 14px; background: #fff; }
+  .swatch-info .swatch-name {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--dark);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .swatch-info .swatch-hex {
+    font-size: 11px;
+    color: #888;
+    font-family: monospace;
+    line-height: 1.6;
+  }
+
+  /* COLLATERAL */
+  .collateral-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+  }
+  @media (max-width: 600px) { .collateral-grid { grid-template-columns: 1fr; } }
+
+  .c-img {
+    height: 280px;
+    overflow: hidden;
+    background: #eee;
+    border: 1px solid #ddd;
+  }
+  .c-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* FLIPBOOK */
+  .flipbook-banner {
+    padding: 56px 48px;
+    background: var(--brown);
+    text-align: center;
+    border-bottom: 1px solid #3a2a18;
+  }
+  .flipbook-banner p {
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .flipbook-banner a {
+    display: inline-block;
+    padding: 14px 40px;
+    background: var(--gold);
+    color: var(--dark);
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .flipbook-banner a:hover { opacity: 0.8; }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 48px;
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #aaa;
+    border-top: 1px solid #ddd;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">Krish Jain</a>
+  <a href="../index.html" class="home-btn">Home</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <p class="tag">Rebranding · Jodhpur · 2025</p>
+  <h1>Garib<br><span>Bakery</span></h1>
+  <p class="sub">A Rebranding Project</p>
+  <div class="hero-images">
+    <div class="img-slot">
+      <img src="https://static.wixstatic.com/media/e5d682_85f286f902d5465781e2538a943aba4b~mv2.jpg/v1/fill/w_600,h_900,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-1823979425_b.jpg" alt="Garib Bakery 1">
+    </div>
+    <div class="img-slot">
+      <img src="https://static.wixstatic.com/media/e5d682_7823cdac8ae84554b47ac9c1a084e867~mv2.jpg/v1/fill/w_600,h_900,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-1823979425_b.jpg" alt="Garib Bakery 2">
+    </div>
+    <div class="img-slot">
+      <img src="https://static.wixstatic.com/media/e5d682_d2370e71de0b45939a7e9ff404430424~mv2.jpg/v1/fill/w_600,h_900,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-1823979425_b.jpg" alt="Garib Bakery 3">
+    </div>
+  </div>
+</div>
+
+<!-- BRIEF -->
+<div class="section">
+  <p class="section-label">Assignment Brief</p>
+  <h2>The Brief</h2>
+  <p>Choose a small enterprise, neighborhood shop, or roadside store for an in-depth rebranding initiative. Talk with the owner to learn about the brand's background, principles, and range of products. Identify a distinctive feature that characterises the business and include it in the redesign. The aim is to develop a renewed brand identity that improves its visual attractiveness while preserving its authenticity and bond with its customers.</p>
+</div>
+
+<!-- ABOUT -->
+<div class="section" style="background:#fff;">
+  <p class="section-label">About the Brand</p>
+  <h2>K T Garib Bakery</h2>
+  <p>K T Garib Bakery in Bhagat Ki Kothi, Jodhpur is a renowned bakery offering a delectable range of freshly baked goods and pastries. Situated in a prime location in Jodhpur, the bakery attracts food lovers from all over the area. With an impressive 4.2 rating based on reviews, K T Garib Bakery is a go-to destination for those looking to indulge in delightful baked treats — offering everything from bread and cakes to cookies and pastries.</p>
+</div>
+
+<!-- MISSION / VISION / VALUES / POSITIONING -->
+<div class="section">
+  <p class="section-label">Brand Strategy</p>
+  <h2>Mission, Vision & Values</h2>
+  <div class="brand-grid">
+    <div class="brand-card">
+      <h3>Mission</h3>
+      <p>Delivering exceptional baked treats crafted with care, precision, and the finest ingredients. Upholding values of affordability, community, and authenticity — spreading happiness, one bite at a time.</p>
+    </div>
+    <div class="brand-card">
+      <h3>Vision</h3>
+      <p>To become a beloved neighbourhood bakery that symbolises warmth, quality, and tradition, creating a lasting bond with customers through freshly baked goods and timeless flavours.</p>
+    </div>
+    <div class="brand-card">
+      <h3>Values & Positioning</h3>
+      <p>Quality, affordability, and authenticity. Rooted in tradition, fostering community while embracing modern flavours — a trusted, community-focused bakery at affordable prices in Jodhpur.</p>
+    </div>
+  </div>
+</div>
+
+<!-- VISUAL IDENTITY IMAGES -->
+<div class="section" style="background:#fff;">
+  <p class="section-label">Visual Identity</p>
+  <h2>Brand System</h2>
+  <div class="vi-grid">
+    <div class="img-box tall">
+      <img src="https://static.wixstatic.com/media/e5d682_4ad401b8f7944117b16f3bdf4fb9634d~mv2.jpg/v1/fill/w_800,h_800,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-1823979425_b.jpg" alt="Visual Identity 1">
+    </div>
+    <div class="img-box tall">
+      <img src="https://static.wixstatic.com/media/e5d682_79f4cf70a9ea4431b931a97ef4d4ffc8~mv2.jpg/v1/fill/w_800,h_800,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-1823979425_b.jpg" alt="Visual Identity 2">
+    </div>
+    <div class="img-box medium">
+      <img src="https://static.wixstatic.com/media/e5d682_b14a6df8a85f454686fd955c5036b2d2~mv2.jpg/v1/fill/w_800,h_500,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-1823979425_b.jpg" alt="Visual Identity 3">
+    </div>
+    <div class="img-box medium">
+      <img src="https://static.wixstatic.com/media/e5d682_179da61014b443279299719e257110f6~mv2.jpg/v1/fill/w_800,h_500,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-1823979425_b.jpg" alt="Visual Identity 4">
+    </div>
+  </div>
+</div>
+
+<!-- LOGO BEFORE / AFTER -->
+<div class="section">
+  <p class="section-label">Logo Evolution</p>
+  <h2>Before &amp; After</h2>
+  <div class="logo-compare">
+    <div class="logo-panel old">
+      <div class="panel-label">Existing Logo</div>
+      <div class="panel-title">Original Mark</div>
+      <div class="logo-display">
+        <img src="https://static.wixstatic.com/media/e5d682_21a5df8bb3f24376b2e1bd5fe57f6e5b~mv2.jpg/v1/fill/w_600,h_200,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-1823979425_b.jpg" alt="Existing Logo">
+      </div>
+    </div>
+    <div class="logo-panel new">
+      <div class="panel-label">Redesigned Logo</div>
+      <div class="panel-title">New Identity</div>
+      <div class="logo-display">
+        <img src="https://static.wixstatic.com/media/e5d682_ef0c0c6eb6054b2e9ffc93bda39026e7~mv2.png/v1/fill/w_600,h_400,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-1823979425_b.png" alt="Redesigned Logo">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRIMARY & SECONDARY LOGOS — FEATURE SECTION -->
+<div class="logos-section">
+  <p class="section-label">Logo System</p>
+  <h2>Primary &amp; Secondary Mark</h2>
+  <div class="logo-duo">
+
+    <div class="logo-feature">
+      <span class="lf-label">Primary Logo</span>
+      <h3>The Turban Mark</h3>
+      <div class="logo-img-wrap">
+        <img src="https://static.wixstatic.com/media/e5d682_1f0306e56f414ce08c47ae2e441a43b7~mv2.png/v1/fill/w_700,h_700,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-1823979425_b.png" alt="Primary Logo — Turban Mark">
+      </div>
+      <p>The logo prominently features a vibrant red turban — a hallmark of Rajasthani culture — celebrating the bakery's roots in Jodhpur. A classic black moustache adds charm and cultural authenticity, while a golden circular frame signifies timelessness and trust. "Est. 1948" honours the bakery's long-standing heritage.</p>
+    </div>
+
+    <div class="logo-feature">
+      <span class="lf-label">Secondary Logo</span>
+      <h3>The Bilingual Mark</h3>
+      <div class="logo-img-wrap">
+        <img src="https://static.wixstatic.com/media/e5d682_634cf8e1fa184fe391b781a54fc3db99~mv2.png/v1/fill/w_700,h_700,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-1823979425_b.png" alt="Secondary Logo — Bilingual Mark">
+      </div>
+      <p>Combining minimalism with cultural significance, this mark features stylised Devanagari "ग" and "B" — symbolising bilingual identity and broad appeal. A warm red-to-yellow gradient reflects Rajasthani vibrancy, the iconic moustache adding regional personality.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- TYPOGRAPHY -->
+<div class="typo-section">
+  <p class="section-label">Typography</p>
+  <h2>Typefaces</h2>
+  <div class="typo-grid">
+    <div class="typo-img">
+      <img src="https://static.wixstatic.com/media/e5d682_b65f8fcf0d114d85817f6e41691acd21~mv2.jpg/v1/fill/w_800,h_500,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-1823979425_b.jpg" alt="Typography 1">
+    </div>
+    <div class="typo-img">
+      <img src="https://static.wixstatic.com/media/e5d682_2bf032a7a2e9449f8c6ec428399ed4e5~mv2.jpg/v1/fill/w_800,h_500,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-1823979425_b.jpg" alt="Typography 2">
+    </div>
+  </div>
+</div>
+
+<!-- COLOUR PALETTE -->
+<div class="section" style="background:#fff;">
+  <p class="section-label">Colour Palette</p>
+  <h2>Brand Colours</h2>
+  <div class="palette-grid">
+    <div class="swatch">
+      <div class="swatch-color" style="background:#f6ce5e;"></div>
+      <div class="swatch-info">
+        <span class="swatch-name">Saffron Gold</span>
+        <span class="swatch-hex">#F6CE5E<br>RGB 246, 206, 94<br>CMYK 0, 16, 62, 4</span>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#C0392B;"></div>
+      <div class="swatch-info">
+        <span class="swatch-name">Rajasthani Red</span>
+        <span class="swatch-hex">#C0392B<br>RGB 192, 57, 43<br>CMYK 0, 70, 78, 25</span>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#2B1A0E;"></div>
+      <div class="swatch-info">
+        <span class="swatch-name">Dark Brown</span>
+        <span class="swatch-hex">#2B1A0E<br>RGB 43, 26, 14<br>CMYK 0, 40, 67, 83</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Palette images from Wix -->
+  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:24px;">
+    <div style="height:200px; overflow:hidden; background:#eee; border:1px solid #ddd;">
+      <img src="https://static.wixstatic.com/media/e5d682_fbb095ac2092437bb9c70b77a0f0b9bd~mv2.png/v1/fill/w_400,h_300,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-1823979425_b.png" style="width:100%;height:100%;object-fit:contain;" alt="Palette 1">
+    </div>
+    <div style="height:200px; overflow:hidden; background:#eee; border:1px solid #ddd;">
+      <img src="https://static.wixstatic.com/media/e5d682_40c81c02fd7149b28183da228eea6b6c~mv2.png/v1/fill/w_400,h_300,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-1823979425_b.png" style="width:100%;height:100%;object-fit:contain;" alt="Palette 2">
+    </div>
+    <div style="height:200px; overflow:hidden; background:#eee; border:1px solid #ddd;">
+      <img src="https://static.wixstatic.com/media/e5d682_5064d39a9e9a448d83513ea595eccc7d~mv2.png/v1/fill/w_400,h_300,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-1823979425_b.png" style="width:100%;height:100%;object-fit:contain;" alt="Palette 3">
+    </div>
+  </div>
+</div>
+
+<!-- COLLATERAL -->
+<div class="section">
+  <p class="section-label">Collateral &amp; Applications</p>
+  <h2>Brand Applications</h2>
+  <div class="collateral-grid">
+    <div class="c-img">
+      <img src="https://static.wixstatic.com/media/e5d682_faf96061aec54d57a40575083323dde4~mv2.png/v1/fill/w_600,h_400,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-1823979425_b.png" alt="Collateral 1">
+    </div>
+    <div class="c-img">
+      <img src="https://static.wixstatic.com/media/e5d682_1a373f6d0199408e9241239bc7cdd927~mv2.png/v1/fill/w_600,h_400,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-1823979425_b.png" alt="Collateral 2">
+    </div>
+    <div class="c-img">
+      <img src="https://static.wixstatic.com/media/e5d682_c78c6fd577a9466f85247032cbd4bfa4~mv2.png/v1/fill/w_600,h_400,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-1823979425_b.png" alt="Collateral 3">
+    </div>
+    <div class="c-img" style="grid-column: span 2;">
+      <img src="https://static.wixstatic.com/media/e5d682_97e6994d511040bcba3dd9057dab7cea~mv2.jpg/v1/fill/w_1000,h_400,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-1823979425_b.jpg" alt="Collateral 4" style="object-fit:cover;">
+    </div>
+    <div class="c-img">
+      <img src="https://static.wixstatic.com/media/e5d682_2cf4095e4600478c8533172e3c2a40c9~mv2.png/v1/fill/w_600,h_400,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-1823979425_b.png" alt="Collateral 5">
+    </div>
+    <div class="c-img">
+      <img src="https://static.wixstatic.com/media/e5d682_badc4549c8124a578efb07f661b471f2~mv2.jpg/v1/fill/w_600,h_400,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-1823979425_b.jpg" alt="Collateral 6">
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>@2026 Krish Jain</footer>
+
+</body>
+</html>
